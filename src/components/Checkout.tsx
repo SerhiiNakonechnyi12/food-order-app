@@ -1,12 +1,12 @@
 import { useContext, useActionState } from 'react';
 import Modal from './UI/Modal.jsx';
-import CartContext from '../store/CartContext.jsx';
+import CartContext from '../store/CartContext.js';
 import { currencyFormatter } from '../util/formatting.js';
 import Input from './UI/Input.jsx';
 import Button from './UI/Button.jsx';
-import UserProgressContext from '../store/UserProgressContext.jsx';
+import UserProgressContext from '../store/UserProgressContext.js';
 import useHttp from '../hooks/useHttp.js';
-import Error from './Error.jsx';
+import Error from './Error.js';
 
 const requestConfig = {
   method: 'POST',
@@ -19,16 +19,14 @@ export default function Checkout() {
   const cartCtx = useContext(CartContext);
   const userProgressCtx = useContext(UserProgressContext);
 
-  const {
-    data,
-    error,
-    sendRequest,
-    clearData,
-  } = useHttp('http://localhost:3000/orders', requestConfig);
+  const { data, error, sendRequest, clearData } = useHttp(
+    'http://localhost:3000/orders',
+    requestConfig,
+  );
 
   const cartTotal = cartCtx.items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,
-    0
+    0,
   );
 
   function handleClose() {
@@ -41,7 +39,7 @@ export default function Checkout() {
     clearData();
   }
 
-  async function checkoutAction( prevState, fd) {    
+  async function checkoutAction(prevState, fd) {
     const customerData = Object.fromEntries(fd.entries()); // { email: test@example.com }
 
     await sendRequest(
@@ -50,11 +48,14 @@ export default function Checkout() {
           items: cartCtx.items,
           customer: customerData,
         },
-      })
+      }),
     );
   }
 
-  const [formState, formAction, isSending] = useActionState(checkoutAction, null)
+  const [formState, formAction, isSending] = useActionState(
+    checkoutAction,
+    null,
+  );
 
   let actions = (
     <>

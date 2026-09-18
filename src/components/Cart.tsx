@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 
 import Modal from './UI/Modal.jsx';
-import CartContext from '../store/CartContext.jsx';
+import CartContext from '../store/CartContext.js';
 import { currencyFormatter } from '../util/formatting.js';
 import Button from './UI/Button.jsx';
-import UserProgressContext from '../store/UserProgressContext.jsx';
-import CartItem from './CartItem.jsx';
+import UserProgressContext from '../store/UserProgressContext.js';
+import CartItem from './CartItem.js';
 
 export default function Cart() {
   const cartCtx = useContext(CartContext);
@@ -13,7 +13,7 @@ export default function Cart() {
 
   const cartTotal = cartCtx.items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,
-    0
+    0,
   );
 
   function handleCloseCart() {
@@ -32,7 +32,7 @@ export default function Cart() {
     >
       <h2>Your Cart</h2>
       <ul>
-        {cartCtx.items.map(item => (
+        {cartCtx.items.map((item) => (
           <CartItem
             key={item.id}
             name={item.name}

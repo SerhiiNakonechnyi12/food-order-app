@@ -1,6 +1,6 @@
-import MealItem from './MealItem.jsx';
+import MealItem from './MealItem.js';
 import useHttp from '../hooks/useHttp.js';
-import Error from './Error.jsx';
+import Error from './Error.js';
 
 const requestConfig = {};
 
@@ -25,7 +25,7 @@ export default function Meals() {
 
   return (
     <ul id="meals">
-      {loadedMeals.map(meal => (
+      {loadedMeals.map((meal) => (
         <MealItem key={meal.id} meal={meal} />
       ))}
     </ul>
