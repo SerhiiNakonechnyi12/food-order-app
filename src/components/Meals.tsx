@@ -1,6 +1,14 @@
-import MealItem from './MealItem.js';
-import useHttp from '../hooks/useHttp.js';
-import Error from './Error.js';
+import MealItem from './MealItem.tsx';
+import useHttp from '../hooks/useHttp.ts';
+import Error from './Error.tsx';
+
+type Meal = {
+  id: string;
+  name: string;
+  price: string;
+  description: string;
+  image: string;
+};
 
 const requestConfig = {};
 
@@ -9,7 +17,7 @@ export default function Meals() {
     data: loadedMeals,
     isLoading,
     error,
-  } = useHttp('http://localhost:3000/meals', requestConfig, []);
+  } = useHttp('http://localhost:3000/meals', requestConfig, [] as Meal[]);
 
   if (isLoading) {
     return <p className="center">Fetching meals...</p>;
