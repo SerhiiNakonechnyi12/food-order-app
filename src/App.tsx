@@ -1,9 +1,9 @@
-import Cart from './components/Cart.js';
-import Checkout from './components/Checkout.js';
+import Cart from './components/Cart.tsx';
+import Checkout from './components/Checkout.tsx';
 import Header from './components/Header.tsx';
-import Meals from './components/Meals.js';
-import { CartContextProvider } from './store/CartContext.js';
-import { UserProgressContextProvider } from './store/UserProgressContext.js';
+import Meals from './components/Meals.tsx';
+import { CartContextProvider } from './store/CartContext.tsx';
+import { UserProgressContextProvider } from './store/UserProgressContext.tsx';
 
 function App() {
   return (
