@@ -14,12 +14,12 @@ async function sendHttpRequest(url: string, config: RequestInit) {
   return resData;
 }
 
-export default function useHttp(
+export default function useHttp<T>(
   url: string,
   config: RequestInit | undefined,
-  initialData: unknown,
+  initialData: T,
 ) {
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState<T>(initialData);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | undefined>();
 
