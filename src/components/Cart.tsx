@@ -2,11 +2,10 @@ import { useContext } from 'react';
 
 import Modal from './UI/Modal.tsx';
 import CartContext from '../store/CartContext.tsx';
-// import { currencyFormatter } from '../util/formatting.js';
-import { currencyFormatter } from '../util/formatting.js';
-import Button from './UI/Button.js';
-import UserProgressContext from '../store/UserProgressContext.js';
-import CartItem from './CartItem.js';
+import { currencyFormatter } from '../util/formatting.ts';
+import Button from './UI/Button.tsx';
+import UserProgressContext from '../store/UserProgressContext.tsx';
+import CartItem from './CartItem.tsx';
 
 export default function Cart() {
   const cartCtx = useContext(CartContext);
