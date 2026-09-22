@@ -1,12 +1,20 @@
 import { currencyFormatter } from '../util/formatting.ts';
 
+type CartItemProps = {
+  name: string;
+  quantity: number;
+  price: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
+};
+
 export default function CartItem({
   name,
   quantity,
   price,
   onIncrease,
   onDecrease,
-}) {
+}: CartItemProps) {
   return (
     <li className="cart-item">
       <p>
