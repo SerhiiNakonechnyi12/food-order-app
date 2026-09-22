@@ -1,9 +1,10 @@
-import { PropsWithChildren } from 'react';
+import { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
 
-type ButtonProps = PropsWithChildren<{
-  textOnly?: boolean;
-  className?: string;
-}>;
+type ButtonProps = ComponentPropsWithoutRef<'button'> &
+  PropsWithChildren<{
+    textOnly?: boolean;
+    className?: string;
+  }>;
 
 export default function Button({
   children,
@@ -12,7 +13,9 @@ export default function Button({
   ...props
 }: ButtonProps) {
   let cssClasses = textOnly ? 'text-button' : 'button';
-  cssClasses += ' ' + className;
+  if (className) {
+    cssClasses += ' ' + className;
+  }
 
   return (
     <button className={cssClasses} {...props}>
