@@ -2,7 +2,7 @@ import MealItem from './MealItem.tsx';
 import useHttp from '../hooks/useHttp.ts';
 import Error from './Error.tsx';
 
-type Meal = {
+export type Meal = {
   id: string;
   name: string;
   price: string;
