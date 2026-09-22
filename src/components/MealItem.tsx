@@ -3,8 +3,13 @@ import { useContext } from 'react';
 import { currencyFormatter } from '../util/formatting.ts';
 import Button from './UI/Button.tsx';
 import CartContext from '../store/CartContext.tsx';
+import { Meal } from './Meals.tsx';
 
-export default function MealItem({ meal }) {
+type MealItemProps = {
+  meal: Meal;
+};
+
+export default function MealItem({ meal }: MealItemProps) {
   const cartCtx = useContext(CartContext);
 
   function handleAddMealToCart() {
@@ -18,7 +23,7 @@ export default function MealItem({ meal }) {
         <div>
           <h3>{meal.name}</h3>
           <p className="meal-item-price">
-            {currencyFormatter.format(meal.price)}
+            {currencyFormatter.format(Number(meal.price))}
           </p>
           <p className="meal-item-description">{meal.description}</p>
         </div>
