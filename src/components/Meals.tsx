@@ -2,10 +2,18 @@ import MealItem from './MealItem.tsx';
 import useHttp from '../hooks/useHttp.ts';
 import Error from './Error.tsx';
 
-export type Meal = {
+type MealFromAPI = {
   id: string;
   name: string;
   price: string;
+  description: string;
+  image: string;
+};
+
+export type Meal = {
+  id: string;
+  name: string;
+  price: number;
   description: string;
   image: string;
 };
@@ -17,7 +25,11 @@ export default function Meals() {
     data: loadedMeals,
     isLoading,
     error,
-  } = useHttp('http://localhost:3000/meals', requestConfig, [] as Meal[]);
+  } = useHttp(
+    'http://localhost:3000/meals',
+    requestConfig,
+    [] as MealFromAPI[],
+  );
 
   if (isLoading) {
     return <p className="center">Fetching meals...</p>;
@@ -27,9 +39,14 @@ export default function Meals() {
     return <Error title="Failed to fetch meals" message={error} />;
   }
 
+  const meals = loadedMeals.map((meal) => ({
+    ...meal,
+    price: Number(meal.price),
+  }));
+
   return (
     <ul id="meals">
-      {loadedMeals.map((meal) => (
+      {meals.map((meal) => (
         <MealItem key={meal.id} meal={meal} />
       ))}
     </ul>
