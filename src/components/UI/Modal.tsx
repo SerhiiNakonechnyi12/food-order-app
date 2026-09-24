@@ -1,6 +1,7 @@
 import {
   type ComponentPropsWithoutRef,
   type PropsWithChildren,
+  type MouseEvent,
   useEffect,
   useRef,
 } from 'react';
@@ -32,8 +33,19 @@ export default function Modal({
     return () => modal.close();
   }, [open]);
 
+  function handleBackdropClick(event: MouseEvent<HTMLDialogElement>) {
+    if (event.target === event.currentTarget) {
+      dialog.current?.close();
+    }
+  }
+
   return createPortal(
-    <dialog ref={dialog} className={`modal ${className}`} onClose={onClose}>
+    <dialog
+      ref={dialog}
+      className={`modal ${className}`}
+      onClose={onClose}
+      onClick={handleBackdropClick}
+    >
       {children}
     </dialog>,
     document.getElementById('modal')!,
