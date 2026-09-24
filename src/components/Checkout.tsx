@@ -43,6 +43,12 @@ export default function Checkout() {
   async function checkoutAction(_prevState: void | null, fd: FormData) {
     const customerData = Object.fromEntries(fd.entries()); // { email: test@example.com }
 
+    console.log('Order:', {
+      items: cartCtx.items,
+      customer: customerData,
+      total: cartTotal,
+    });
+
     await sendRequest(
       JSON.stringify({
         order: {
