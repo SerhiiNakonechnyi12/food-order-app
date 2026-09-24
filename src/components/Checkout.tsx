@@ -22,6 +22,7 @@ export default function Checkout() {
   const { data, error, sendRequest, clearData } = useHttp(
     'http://localhost:3000/orders',
     requestConfig,
+    null,
   );
 
   const cartTotal = cartCtx.items.reduce(
@@ -39,7 +40,7 @@ export default function Checkout() {
     clearData();
   }
 
-  async function checkoutAction(prevState, fd) {
+  async function checkoutAction(_prevState: void | null, fd: FormData) {
     const customerData = Object.fromEntries(fd.entries()); // { email: test@example.com }
 
     await sendRequest(
@@ -52,7 +53,7 @@ export default function Checkout() {
     );
   }
 
-  const [formState, formAction, isSending] = useActionState(
+  const [_formState, formAction, isSending] = useActionState(
     checkoutAction,
     null,
   );
