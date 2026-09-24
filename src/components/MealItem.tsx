@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { currencyFormatter } from '../util/formatting.ts';
 import Button from './UI/Button.tsx';
 import CartContext from '../store/CartContext.tsx';
-import { Meal } from './Meals.tsx';
+import { type Meal } from './Meals.tsx';
 
 type MealItemProps = {
   meal: Meal;
@@ -23,7 +23,7 @@ export default function MealItem({ meal }: MealItemProps) {
         <div>
           <h3>{meal.name}</h3>
           <p className="meal-item-price">
-            {currencyFormatter.format(Number(meal.price))}
+            {currencyFormatter.format(meal.price)}
           </p>
           <p className="meal-item-description">{meal.description}</p>
         </div>
