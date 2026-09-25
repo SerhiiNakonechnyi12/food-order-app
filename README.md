@@ -126,7 +126,7 @@ Run these commands from the project root unless noted.
 
 ## Screenshots
 
-Screenshots are available in `/screenshots/`:
+Screenshots are available in `screenshots/`:
 
 ![Main page](./screenshots/main-page.png)
 
