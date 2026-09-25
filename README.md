@@ -16,7 +16,7 @@ A small food ordering application with a React frontend and a local Express API.
 - **Backend:** Node.js, Express 4, JavaScript (ES modules)
 - **Storage:** JSON files (`available-meals.json` and `orders.json`)
 
-The frontend is implemented in TS/TSX following a migration from JavaScript/JSX. The backend remains JavaScript; this is not a full-stack TypeScript project.
+The frontend was migrated from JavaScript/JSX to TypeScript/TSX.
 
 ## Architecture and Technical Decisions
 
@@ -35,7 +35,7 @@ The frontend is implemented in TS/TSX following a migration from JavaScript/JSX.
 - Frontend migration to TypeScript/TSX, including typed component props, Context API values, reducer state and actions, and the generic `useHttp` hook.
 - Mapping the API meal shape to the frontend model at the point where meals enter the UI.
 - Cart state management with a reducer and checkout submission using `FormData` and `useActionState`.
-- A local Express API that serves the menu and validates and stores submitted orders in JSON files.
+- Frontend integration with the local Express API, including menu loading, order submission, and loading/error handling.
 
 ## Project Structure
 
