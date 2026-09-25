@@ -46,7 +46,8 @@ The frontend was migrated from JavaScript/JSX to TypeScript/TSX.
 │   ├── data/
 │   │   ├── available-meals.json
 │   │   └── orders.json
-│   └── public/images/
+│   └── public/
+│       └── images/
 ├── public/
 │   └── logo.jpg
 ├── src/
@@ -100,6 +101,7 @@ Requires Node.js and npm. Open two terminals from the project root.
 
    The API listens on port `3000`. Start it before using the frontend, which requests `http://localhost:3000`.
 
+
 ## API
 
 The Express server listens on port `3000` and enables cross-origin requests.
@@ -120,25 +122,14 @@ Run these commands from the project root unless noted.
 | `npm run dev` | Start the Vite frontend development server. |
 | `npm run build` | Build the frontend with Vite. |
 | `npm run preview` | Preview the Vite production build. |
-| `npm run lint` | Run ESLint with the configured `.js`/`.jsx` extension arguments. |
 | `npm start` (from `backend/`) | Start the Express API with Node.js. |
 
 ## Screenshots
 
-No screenshots are currently included in the repository.
+Screenshots are available in `/screenshots/`:
 
-## Limitations / Future Improvements
+![Main page](./screenshots/main-page.png)
 
-**Current limitations**
+![Cart](./screenshots/cart.png)
 
-- Orders are stored in a local JSON file; this is suitable for a demo, not concurrent or production use.
-- The frontend API URLs are hard-coded to `localhost:3000`.
-- Backend validation is basic and does not provide durable storage, authentication, or payment processing.
-- The frontend lint script specifies only `.js` and `.jsx` extensions, while the application source is `.ts` and `.tsx`.
-
-**Possible future improvements**
-
-- Move API URLs into environment configuration and add deployment configuration.
-- Use a database and strengthen server-side validation and error handling.
-- Add automated tests and configure linting and type-checking for the TypeScript source.
-- Add accessible form feedback and stronger validation for customer input.
+![Checkout](./screenshots/checkout.png)
