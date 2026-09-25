@@ -129,7 +129,5 @@ Run these commands from the project root unless noted.
 Screenshots are available in `screenshots/`:
 
 ![Main page](./screenshots/main-page.png)
-
 ![Cart](./screenshots/cart.png)
-
 ![Checkout](./screenshots/checkout.png)
