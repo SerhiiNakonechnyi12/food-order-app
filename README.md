@@ -126,8 +126,8 @@ Run these commands from the project root unless noted.
 
 ## Screenshots
 
-Screenshots are available in `screenshots/`:
+Screenshots are available in `./public/screenshots/`:
 
-![Main page](./screenshots/main-page.png)
-![Cart](./screenshots/cart.png)
-![Checkout](./screenshots/checkout.png)
+![Main page](./public/screenshots/main-page.png)
+![Cart](./public/screenshots/cart.png)
+![Checkout](./public/screenshots/checkout.png)
